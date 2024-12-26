@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<h2>Search for a Product</h2>
+<form th:action="@{/searchbyid} method="Post">
+<label for="id">Enter Id:</label>
+<input type="number" name="id" id="id" required>
+<button type="submit">Search</button>
+</form>
+<div th:if="${product!=null}">
+<h3>Product Details:</h3>
+<p><strong>Id:</strong><span th:text="${product.productId}"></span></p>
+<p><strong>Name:</strong><span th:text="${product. productName}"></span></p>
+<p><strong>Brand:</strong><span th:text="${product.productBrand}"></span></p>
+<p><strong>Price:</strong><span th:text="${product.productPrice}"></span></p>
+<p><strong>DiscountRate:</strong><span th:text="${product.discountRate}"></span></p>
+<p><strong>MadeIn:</strong><span th:text="${product.productMadeIn}"></span></p>
+<p><strong>TaxRate:</strong><span th:text="${product.taxRate}"></span></p>
+<p><strong>offerPrice:</strong><span th:text="${product.offerPrice}"></span></p>
+<p><strong>Quantity:</strong><span th:text="${product.productQuantity}"></span></p>
+<p><strong>StockValue:</strong><span th:text="${product.stockValue}"></span></p>
+<p><strong>FinalPrice</strong><span th:text="${product.finalPrice}"></span></p>
+<p><strong>TaxPrice:</strong><span th:text="${product.taxPrice}"></span></p>
+</div>
+
+<div th:if="${product==null}">
+<p>No product found with the given ID.</p>
+</div>
+
+</body>
+</html>

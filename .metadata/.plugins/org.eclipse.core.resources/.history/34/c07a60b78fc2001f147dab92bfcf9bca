@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Form</title>
+    <style>
+        /* General Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(120deg, #f0f8ff, #e6e6fa);
+            color: #333;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #4a90e2;
+        }
+
+        form {
+            background: #fff;
+            padding: 20px 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            max-width: 500px;
+            width: 100%;
+        }
+
+        form div {
+            margin-bottom: 15px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+            color: #333;
+        }
+
+        input {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+
+        input:focus {
+            border-color: #4a90e2;
+            outline: none;
+            box-shadow: 0 0 5px rgba(74, 144, 226, 0.5);
+        }
+
+        button {
+            background: #4a90e2;
+            color: #fff;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            font-size: 1rem;
+            cursor: pointer;
+            width: 100%;
+            transition: background 0.3s ease;
+        }
+
+        button:hover {
+            background: #357abd;
+        }
+
+        @media (max-width: 768px) {
+            form {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <form th:action="@{/saveProduct}"    th:object="${productModel}"    method="post">
+        <h1>Add or Edit Product</h1>
+        <div>
+            <label for="productName">Product Name:</label>
+            <input type="text" id="productName" name="productName" th:value="*{productName}"/>
+        </div>
+        <div>
+            <label for="productBrand">Product Brand:</label>
+            <input type="text" id="productBrand" name="productBrand"  th:value="*{productBrand}"/>
+        </div>
+        <div>
+            <label for="productPrice">Product Price:</label>
+            <input type="number" id="productPrice" name="productPrice"  th:value="*{productPrice}"/>
+        </div>
+        <div>
+            <label for="productQuantity">Product Quantity:</label>
+            <input type="number" id="productQuantity" name="productQuantity" th:value="*{productQuantity}"/ >
+        </div>
+        <div>
+            <label for="taxRate">Tax Rate:</label>
+            <input type="number" id="taxRate" name="taxRate"  th:value="*{taxRate}"/>
+        </div>
+        <div>
+            <label for="discountRate">Discount Rate:</label>
+            <input type="number" id="discountRate" name="discountRate"  th:value="*{discountRate}"/>
+        </div>
+        <div>
+            <label for="productMadeIn">Made In:</label>
+            <input type="text" id="productMadeIn" name="productMadeIn"  th:value="*{productMadeIn}"/>
+        </div>
+        <div>
+            <button type="submit">Submit</button>
+        </div>
+    </form>
+</body>
+</html>

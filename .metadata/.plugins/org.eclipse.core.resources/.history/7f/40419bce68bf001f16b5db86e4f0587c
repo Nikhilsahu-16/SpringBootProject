@@ -1,0 +1,45 @@
+package com.springboot.controller;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+
+import com.springboot.entity.productEntity;
+import com.springboot.productModel.ProductModel;
+import com.springboot.service.ProductService;
+
+
+@Controller 
+public class productcontroller {
+	
+		@Autowired
+		ProductService productservice;
+	
+	@GetMapping("/product")
+	public String Product()
+	{
+		return "product";
+	}
+	@PostMapping("/saveProduct")
+	public String saveProduct(ProductModel productmodel) {
+		//TODO: process POST request
+		productservice.saveProductDetails(productmodel);
+		return "success";
+	}
+	     
+	@GetMapping("/getallproducts")
+	public String getAllProducts(Model model)
+	{
+		List<productEntity>products=productservice.getAllproducts();
+		
+		model.addAttribute("products",products);
+		return "product-list";
+	}
+	
+
+}

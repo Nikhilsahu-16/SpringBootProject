@@ -1,0 +1,50 @@
+
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Product Form</title>
+</head>
+<body>
+    <h1>Add or Edit Product</h1>
+    <form th:action="@{/saveProduct}" th:method="post">
+        <div>
+            <label for="productId">Product ID:</label>
+            <input type="text" id="productId" name="productId"  required>
+        </div><br><br>
+        <div>
+            <label for="productName">Product Name:</label>
+            <input type="text" id="productName" name="productName"  required>
+        </div><br><br>
+        <div>
+            <label for="productBrand">Product Brand:</label>
+            <input type="text" id="productBrand" name="productBrand"  required>
+        </div><br><br>
+        <div>
+            <label for="productPrice">Product Price:</label>
+            <input type="number" id="productPrice" name="productPrice" required>
+        </div><br><br>
+        <div>
+            <label for="productQuantity">Product Quantity:</label>
+            <input type="number" id="productQuantity" name="productQuantity"  required>
+        </div><br><br>
+           <div>
+            <label for="taxRate">tax rate:</label>
+            <input type="number" id="taxRate" name="taxRate"  required>
+        </div><br><br>
+         <div>
+            <label for="discountRate">discount rate:</label>
+            <input type="number" id="discountRate" name="discountRate"  required>
+        </div><br><br>
+          <div>
+            <label for=" productMadein">MadeIn:</label>
+            <input type="text" id=" productMadein" name="productMadein"  required>
+        </div><br><br>
+        
+        
+        
+        <div>
+            <button type="submit" value="submit">submit</button>
+        </div>
+    </form>
+</body>
+</html>

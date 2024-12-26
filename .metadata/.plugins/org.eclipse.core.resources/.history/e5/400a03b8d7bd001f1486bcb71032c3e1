@@ -1,0 +1,22 @@
+package com.springboot.entity;
+
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
+public class productEntity {
+	private int productId;
+	private String productName;
+	private String productBrand;
+	private String productMadein;
+	private double productPrice;	
+	private int productQuantity;
+	private int discountRate;
+	private int taxRate;
+	private double discountPrice;
+	private double offerPrice;
+	private double finalPrice;
+	private double stockValue;
+}

@@ -1,0 +1,15 @@
+package com.springboot.productModel;
+
+import lombok.AllArgsConstructor;
+import lombok.Data;
+@Data
+@AllArgsConstructor
+public class ProductModel {
+	private int productId;
+	private String productName;
+	private double productPrice;
+	private int productQuantity;
+	private String productBrand;
+	private double taxRate;
+	private double discountRate;
+}

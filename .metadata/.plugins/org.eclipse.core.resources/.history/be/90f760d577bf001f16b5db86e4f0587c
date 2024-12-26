@@ -1,0 +1,28 @@
+package com.springboot.entity;
+
+import jakarta.annotation.Generated;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
+@Entity
+public class productEntity {
+	@Id
+	private long productId;
+	private String productName;
+	private String productBrand;
+	private String productMadeIn;
+	private double productPrice;	
+	private int productQuantity;
+	private double discountRate;
+	private double taxRate;
+	private double discountPrice;
+	private double taxPrice;
+	private double offerPrice;
+	private double finalPrice;
+	private double stockValue;
+}

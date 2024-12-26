@@ -1,0 +1,11 @@
+spring.application.name=SpringBootMvc-2
+server.port=8000
+
+
+# H2 Database Properties
+spring.datasource.driver-class-name=org.h2.Driver
+spring.datasource.url=jdbc:h2:mem:testdb    # Use 'mem:testdb' for in-memory database
+spring.datasource.username=sa              # Default username
+spring.datasource.password=nikhil@123             # Default password (empty)
+spring.h2.console.enabled=true             # Enable H2 console for debugging (optional)
+spring.h2.console.path=/h2-console         # URL for H2 console (default: /h2-console)

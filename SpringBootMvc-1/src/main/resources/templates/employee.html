@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Employee Form</title>
+</head>
+<body>
+    <h1>Employee Form</h1>
+    <form th:action="@{/submit}" th:method="post">
+        <div>
+            <label for="empId">Employee ID:</label>
+            <input type="text" id="empId" name="empId" required>
+            <br><br>
+        </div>
+        <div>
+            <label for="empName">Employee Name:</label>
+            <input type="text" id="empName" name="empName" required>
+             <br><br>
+        </div>
+        <div>
+            <label for="empSalary">Employee Salary:</label>
+            <input type="number" id="empSalary" name="empSalary" required>
+             <br><br>
+        </div>
+        <div>
+            <label for="empDepartment">Employee Department:</label>
+            <input type="text" id="empDepartment" name="empDepartment" required>
+             <br><br>
+        </div>
+        <div>
+            <button style="color:blue" type="submit">Submit</button>
+        </div>
+    </form>
+</body>
+</html>

@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Search</title>
+    <style>
+        /* General Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(120deg, #f0f8ff, #e6e6fa);
+            color: black;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+        }
+
+        h2 {
+            color: red;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        form {
+            background: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 400px;
+            text-align: center;
+        }
+
+        label {
+            font-weight: bold;
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        input {
+            width: calc(100% - 20px);
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+
+        input:focus {
+            border-color: #4a90e2;
+            outline: none;
+            box-shadow: 0 0 5px rgba(74, 144, 226, 0.5);
+        }
+
+        button {
+            background-color: #4a90e2;
+            color: #fff;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #357abd;
+        }
+
+        .product-details {
+            margin-top: 20px;
+            background: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 500px;
+        }
+
+        .product-details p {
+            margin: 10px 0;
+            font-size: 1rem;
+        }
+
+        .product-details strong {
+            color: #4a90e2;
+        }
+
+        .no-product {
+            margin-top: 20px;
+            color: red;
+            font-weight: bold;
+            text-align: center;
+            font-size: 1.2rem;
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            form, .product-details {
+                width: 90%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <h2>Search for a Product</h2>
+    <form th:action="@{/searchbyid}" method="post">
+        <label for="id">Enter Product ID:</label>
+        <input type="number" name="productId" id="productId" required>
+        <button type="submit">Search</button>
+    </form>
+
+    <div th:if="${product != null}" class="product-details">
+        <h3>Product Details</h3>
+        <p><strong>ID:</strong> <span th:text="${product.productId}"></span></p>
+        <p><strong>Name:</strong> <span th:text="${product.productName}"></span></p>
+        <p><strong>Brand:</strong> <span th:text="${product.productBrand}"></span></p>
+        <p><strong>Price:</strong> <span th:text="${product.productPrice}"></span></p>
+        <p><strong>Discount Rate:</strong> <span th:text="${product.discountRate}"></span></p>
+        <p><strong>Made In:</strong> <span th:text="${product.productMadeIn}"></span></p>
+        <p><strong>Tax Rate:</strong> <span th:text="${product.taxRate}"></span></p>
+        <p><strong>Offer Price:</strong> <span th:text="${product.offerPrice}"></span></p>
+        <p><strong>Quantity:</strong> <span th:text="${product.productQuantity}"></span></p>
+        <p><strong>Stock Value:</strong> <span th:text="${product.stockValue}"></span></p>
+        <p><strong>Final Price:</strong> <span th:text="${product.finalPrice}"></span></p>
+        <p><strong>Tax Price:</strong> <span th:text="${product.taxPrice}"></span></p>
+    </div>
+
+    <div th:if="${product == null}" class="no-product">
+        <p>No product found with the given ID.</p>
+    </div>
+</body>
+</html>

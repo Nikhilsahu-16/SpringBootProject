@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Table</title>
+    <style>
+        /* General Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(120deg, #f0f8ff, #e6e6fa);
+            color: #333;
+            padding: 20px;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #4a90e2;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+            background: #fff;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: center;
+            font-size: 0.9rem;
+        }
+
+        th {
+            background-color: #4a90e2;
+            color: #fff;
+            font-weight: bold;
+            font-size: 1rem;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+
+        tr:nth-child(odd) {
+            background-color: #fff;
+        }
+
+        tr:hover {
+            background-color: #e6f7ff;
+            cursor: pointer;
+        }
+
+        td a {
+            color: #e74c3c;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s ease;
+        }
+
+        td a:hover {
+            color: #c0392b;
+        }
+
+        @media (max-width: 768px) {
+            table {
+                font-size: 0.8rem;
+            }
+
+            th, td {
+                padding: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>Product List</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Product ID</th>
+                <th>Product Name</th>
+                <th>Product Brand</th>
+                <th>Made In</th>
+                <th>Price</th>
+                <th>Quantity</th>
+                <th>Discount Rate (%)</th>
+                <th>Tax Rate (%)</th>
+                <th>Discount Price</th>
+                <th>Tax Price</th>
+                <th>Offer Price</th>
+                <th>Final Price</th>
+                <th>Stock Value</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Iterating through the product list -->
+            <tr th:each="product : ${products}">
+                <td th:text="${product.productId}"></td>
+                <td th:text="${product.productName}"></td>
+                <td th:text="${product.productBrand}"></td>
+                <td th:text="${product.productMadeIn}"></td>
+                <td th:text="${product.productPrice}"></td>
+                <td th:text="${product.productQuantity}"></td>
+                <td th:text="${product.discountRate}"></td>
+                <td th:text="${product.taxRate}"></td>
+                <td th:text="${product.discountPrice}"></td>
+                <td th:text="${product.taxPrice}"></td>
+                <td th:text="${product.offerPrice}"></td>
+                <td th:text="${product.finalPrice}"></td>
+                <td th:text="${product.stockValue}"></td>
+                <td>
+                    <a th:href="@{'/delete/' + ${product.productId}}">Delete</a><br>
+                    
+                </td>
+                <td> 
+                <a th:href="@{'/edit/' + ${product.productId}}">Edit</a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+</html>

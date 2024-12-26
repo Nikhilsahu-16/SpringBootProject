@@ -1,0 +1,31 @@
+package com.springboot.controller;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+
+import com.springboot.productModel.ProductModel;
+
+
+@Controller
+public class productcontroller {
+	public class productController{
+		@Autowired
+		ProductService productservice;
+	}
+	@GetMapping("/")
+	public String Product()
+	{
+		return "product";
+	}
+	@PostMapping("/saveProduct")
+	public String postMethodName(ProductModel productmodel) {
+		//TODO: process POST request
+		
+		return "success";
+	}
+	
+
+}

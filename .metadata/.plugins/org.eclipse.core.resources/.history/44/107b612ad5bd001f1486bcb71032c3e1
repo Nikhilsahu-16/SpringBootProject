@@ -1,0 +1,11 @@
+spring.application.name=SpringBootMvc-2
+server.port=8001
+
+
+# H2 Database Properties
+spring.datasource.driver-class-name=org.h2.Driver
+spring.datasource.url=jdbc:h2:mem:testdb   
+spring.datasource.username=sa             
+spring.datasource.password=nikhil@123            
+spring.h2.console.enabled=true             
+spring.h2.console.path=/h2-console        
